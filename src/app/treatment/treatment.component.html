@@ -1,4 +1,4 @@
-<p-dialog header="Title" [(visible)]="display">
+<p-dialog header="Edit Treatment" [(visible)]="display" >
 
   <form  #f="ngForm">
           <div class="row">
@@ -27,7 +27,7 @@
           </div>
           <div class="row">
                <div class="col-md-12">
-                      <label  class="control-label">Details</label>
+                      <label  class="control-label" >Details</label>
 
                       <textarea class="form-control" placeholder="details" name="details" ngModel={{treatment.details}} #details=ngModel required></textarea>
                   </div>
@@ -43,15 +43,21 @@
 </p-dialog>
   
   
-  <div class="card-content single-card">
-      <div class="card-desc">
-          <h3>{{treatment.name}} </h3>
-          <p>{{treatment.details}}</p>
-          <div class="mb-1 text-muted small">Price : {{treatment.price}}</div>
-          <div class="mb-1 text-muted small">Duration : {{treatment.duration}}</div>
+  <div class="card-content single-card scrollbar scrollbar scrollbar-black bordered-black square">
+      <div class="card-desc force-overflow">
+          <h3 style="text-align:center; font-family: 'Fjalla One', sans-serif;">{{treatment.name}} </h3>
+          
+          <div  style="font-family: 'Cormorant Garamond', serif; text-align:center; margin-bottom: 20px" >Details  </div>
+          <div class="mb-1 text-muted small">{{treatment.details}}</div>
+
+          <hr>
+          <div class="mb-1 text-muted small">Price : {{treatment.price}} ILS</div>
+          <div class="mb-1 text-muted small">Duration : {{treatment.duration}} Minutes</div>
+          <div class="btn-options ">
               <a  class="btn btn-primary btn-block" (click)="toTreatment(treatment._id)">Order Now</a>   
               <a *ngIf="authService.isLoggedIn()" class="btn btn-danger btn-block" (click)="deleteTreatment()">Remove Treatment</a>   
               <a *ngIf="authService.isLoggedIn()" class="btn btn-info btn-block" (click)="editTreatment()">Edit Treatment</a>   
+            </div>
 
       </div>
   </div>

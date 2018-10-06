@@ -1,7 +1,7 @@
 <section class="details-card">
   <div class="container">
 
-        <p-dialog header="Title" [(visible)]="display">
+        <p-dialog header="Add Treatment" [(visible)]="display">
 
                 <form  #f="ngForm">
                         <div class="row">
@@ -49,9 +49,9 @@
             
 
 
-            <button *ngIf="authService.isLoggedIn()" type="text" (click)="showDialog()"  class="btn btn-primary btn-block" style="margin-bottom: 30px;">Add Treatment</button>
+            <button *ngIf="authService.isLoggedIn()" type="text" (click)="showDialog()"  class="col-md-12 col-lg-8 btn btn-primary addTreatment" >Add Treatment</button>
 
-
+    
       <div class="row">
 
 
